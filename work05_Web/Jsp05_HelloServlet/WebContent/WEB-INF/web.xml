@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>Jsp05_HelloServlet</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+
+  </welcome-file-list>
+  
+  <!-- 에플리케이션 전체의 전역 파라미터 설정  -->
+	<context-param>
+		<param-name>url</param-name>
+		<param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+	</context-param>
+
+	<servlet>
+		<servlet-name>HelloServlet</servlet-name>
+		<servlet-class>com.hello.controller.HelloController</servlet-class>
+		
+		<!-- init() 메서드가 실행 될 때(서블릿 객체가 생성 초기화 될때) 해당 값 사용가능 -->
+		<init-param>
+			<param-name>driver</param-name>
+			<param-value>oracle.jdbc.driver.oracledriver</param-value>
+		</init-param>
+		
+		<!-- 순서를 정의한다, 낮은값일수록 가장 먼저 초기화 -->
+		
+		<load-on-startup>1</load-on-startup>
+		
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>HelloServlet</servlet-name>
+		<url-pattern>/HelloServlet.do</url-pattern>
+	</servlet-mapping>
+
+
+
+
+
+
+  
+  
+</web-app>
